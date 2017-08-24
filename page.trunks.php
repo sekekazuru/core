@@ -10,7 +10,6 @@ $trunknum = ltrim($extdisplay,'OUT_');
 
 $action = isset($request['action'])?$request['action']:'';
 // Now check if the Copy Trunks submit button was pressed, in which case we duplicate the trunk
-//
 if (isset($request['copytrunk'])) {
 	$action = 'copytrunk';
 }
@@ -381,7 +380,8 @@ $displayvars = array(
 	'extdisplay' => $extdisplay,
 	'display' => $display,
 	'trunks' => $trunks,
-	'trunknum' => $trunknum
+	'trunknum' => $trunknum,
+	'popover' => $_REQUEST['fw_popover']
 );
 show_view(dirname(__FILE__).'/views/trunks/header.php',$displayvars);
 
@@ -392,7 +392,11 @@ if (!$tech && !$extdisplay) {
 	$trunk_types = \FreePBX::Core()->listTrunkTypes();
 
 	$displayvars['trunk_types'] = $trunk_types;
-	show_view(dirname(__FILE__).'/views/trunks/main.php',$displayvars);
+	if($_REQUEST['fw_popover'] ==1){
+		show_view(dirname(__FILE__).'/views/trunks/popover_main.php',$displayvars);
+	}else{
+		show_view(dirname(__FILE__).'/views/trunks/main.php',$displayvars);
+	}
 } else {
 	if ($extdisplay) {
 		$trunk_details = core_trunks_getDetails($trunknum);

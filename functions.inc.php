@@ -807,6 +807,7 @@ function core_destination_popovers() {
 	} else {
 		$ret['extensions'] = 'Extensions';
 	}
+	$ret['trunks'] = 'Trunks';
 	return $ret;
 }
 

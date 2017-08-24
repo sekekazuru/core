@@ -213,6 +213,10 @@
 		<wiki category="Admin" requires_auth="false" href="http://www.freepbx.org/support-and-professional-services" target="_blank" access="all">FreePBX Support</wiki>
 	</menuitems>
 	<popovers>
+		<trunks>
+                        <display>trunks</display>
+                        <view>form</view>
+                </trunks>
 		<extensions>
 			<display>extensions</display>
 			<view>quick</view>
