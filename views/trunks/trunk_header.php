@@ -191,12 +191,12 @@ if(!$amp_conf['ENABLEOLDDIALPATTERNS']) {
 
 <div class="container-fluid">
 <?php if (!empty($_REQUEST['fw_popover'])) {
-                   ?>
+?>
                               <script>
                                    $(document).ready(function(){
                                      $('[name="fw_popover_process"]').val('true');
                                      $('<input>').attr({type: 'hidden', name: 'fw_popover'}).val('1').appendTo('.popover-form');
-                                             });
+					    });
                           </script>
                                 <?php
 			 }?>
@@ -208,7 +208,7 @@ if(!$amp_conf['ENABLEOLDDIALPATTERNS']) {
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="fpbx-container">
-					<form enctype="multipart/form-data" class="fpbx-submit" name="trunkEdit" id="trunkEdit" action="" method="post"  data-fpbx-delete="config.php?display=trunks&amp;extdisplay=<?php echo urlencode($extdisplay) ?>&amp;action=deltrunk">
+					<form enctype="multipart/form-data" class="popover-form fpbx-submit" onsubmit="return checkvalid();" name="trunkEdit" id="trunkEdit" action="" method="post"  data-fpbx-delete="config.php?display=trunks&amp;extdisplay=<?php echo urlencode($extdisplay) ?>&amp;action=deltrunk">
 						<input type="hidden" name="display" value="<?php echo $display?>"/>
 						<input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>"/>
 						<input type="hidden" name="action"  id="action" value="<?php echo ($extdisplay ? "edittrunk" : "addtrunk") ?>"/>
